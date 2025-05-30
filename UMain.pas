@@ -3,8 +3,17 @@ unit UMain;
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Imaging.pngimage, Vcl.ExtCtrls, Vcl.StdCtrls;
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
+  System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Imaging.pngimage, Vcl.ExtCtrls,
+  Vcl.StdCtrls,
+  FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Error, FireDAC.UI.Intf,
+  FireDAC.Phys.Intf,
+  FireDAC.Stan.Def, FireDAC.Stan.Pool, FireDAC.Stan.Async, FireDAC.Phys,
+  FireDAC.Phys.SQLite,
+  FireDAC.Phys.SQLiteDef, FireDAC.Stan.ExprFuncs,
+  FireDAC.Phys.SQLiteWrapper.Stat,
+  FireDAC.VCLUI.Wait, Data.DB, FireDAC.Comp.Client;
 
 type
   TForm3 = class(TForm)
@@ -32,6 +41,7 @@ type
     Label11: TLabel;
     Label12: TLabel;
     Label13: TLabel;
+    FDC: TFDConnection;
     procedure Image1Click(Sender: TObject);
     procedure Image2Click(Sender: TObject);
     procedure Image3Click(Sender: TObject);
@@ -44,6 +54,8 @@ type
     procedure Image10Click(Sender: TObject);
     procedure Image11Click(Sender: TObject);
     procedure Image12Click(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
   public
@@ -52,7 +64,7 @@ type
 
 var
   Form3: TForm3;
-  cur:integer;
+  cur: integer;
 
 implementation
 
@@ -60,88 +72,99 @@ implementation
 
 uses UComp;
 
+procedure TForm3.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  FDC.Close;
+end;
+
+procedure TForm3.FormCreate(Sender: TObject);
+begin
+  FDC.Params.Database := extractfilepath(paramstr(0)) + 'salon.sqlite';
+  FDC.Open();
+end;
+
 procedure TForm3.Image10Click(Sender: TObject);
 begin
- cur:=Image10.Tag;
- ShowMessage(inttostr(cur));
- Fcomp.ShowModal;
+  cur := Image10.Tag;
+  ShowMessage(inttostr(cur));
+  Fcomp.ShowModal;
 end;
 
 procedure TForm3.Image11Click(Sender: TObject);
 begin
- cur:=Image11.Tag;
- ShowMessage(inttostr(cur));
- Fcomp.ShowModal;
+  cur := Image11.Tag;
+  ShowMessage(inttostr(cur));
+  Fcomp.ShowModal;
 end;
 
 procedure TForm3.Image12Click(Sender: TObject);
 begin
- cur:=Image12.Tag;
- ShowMessage(inttostr(cur));
- Fcomp.ShowModal;
+  cur := Image12.Tag;
+  ShowMessage(inttostr(cur));
+  Fcomp.ShowModal;
 end;
 
 procedure TForm3.Image1Click(Sender: TObject);
 begin
- cur:=Image1.Tag;
- ShowMessage(inttostr(cur));
- Fcomp.ShowModal;
+  cur := Image1.Tag;
+  ShowMessage(inttostr(cur));
+  Fcomp.ShowModal;
 end;
 
 procedure TForm3.Image2Click(Sender: TObject);
 begin
-  cur:=Image2.Tag;
- ShowMessage(inttostr(cur));
- Fcomp.ShowModal;
+  cur := Image2.Tag;
+  ShowMessage(inttostr(cur));
+  Fcomp.ShowModal;
 end;
 
 procedure TForm3.Image3Click(Sender: TObject);
 begin
- cur:=Image3.Tag;
- ShowMessage(inttostr(cur));
- Fcomp.ShowModal;
+  cur := Image3.Tag;
+  ShowMessage(inttostr(cur));
+  Fcomp.ShowModal;
 end;
 
 procedure TForm3.Image4Click(Sender: TObject);
 begin
- cur:=Image4.Tag;
- ShowMessage(inttostr(cur));
- Fcomp.ShowModal;
+  cur := Image4.Tag;
+  ShowMessage(inttostr(cur));
+  Fcomp.ShowModal;
 end;
 
 procedure TForm3.Image5Click(Sender: TObject);
 begin
- cur:=Image5.Tag;
- ShowMessage(inttostr(cur));
- Fcomp.ShowModal;
+  cur := Image5.Tag;
+  ShowMessage(inttostr(cur));
+  Fcomp.ShowModal;
 end;
 
 procedure TForm3.Image6Click(Sender: TObject);
 begin
- cur:=Image6.Tag;
- ShowMessage(inttostr(cur));
- Fcomp.ShowModal;
+  cur := Image6.Tag;
+  ShowMessage(inttostr(cur));
+  Fcomp.ShowModal;
 end;
 
 procedure TForm3.Image7Click(Sender: TObject);
 begin
- cur:=Image7.Tag;
- ShowMessage(inttostr(cur));
- Fcomp.ShowModal;
+  cur := Image7.Tag;
+  ShowMessage(inttostr(cur));
+  Fcomp.ShowModal;
 end;
 
 procedure TForm3.Image8Click(Sender: TObject);
 begin
- cur:=Image8.Tag;
- ShowMessage(inttostr(cur));
- Fcomp.ShowModal;
+  cur := Image8.Tag;
+  ShowMessage(inttostr(cur));
+  Fcomp.ShowModal;
 end;
 
 procedure TForm3.Image9Click(Sender: TObject);
 begin
- cur:=Image9.Tag;
- ShowMessage(inttostr(cur));
- Fcomp.ShowModal;
+  cur := Image9.Tag;
+  ShowMessage(inttostr(cur));
+  Fcomp.ShowModal;
 end;
 
 end.

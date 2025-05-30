@@ -12,6 +12,8 @@ object Form3: TForm3
   Font.Style = []
   OldCreateOrder = False
   Position = poScreenCenter
+  OnClose = FormClose
+  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object Image1: TImage
@@ -18726,7 +18728,7 @@ object Form3: TForm3
     ParentFont = False
   end
   object Label5: TLabel
-    Left = 440
+    Left = 436
     Top = 9
     Width = 13
     Height = 25
@@ -18739,7 +18741,7 @@ object Form3: TForm3
     ParentFont = False
   end
   object Label6: TLabel
-    Left = 564
+    Left = 560
     Top = 9
     Width = 13
     Height = 25
@@ -18752,7 +18754,7 @@ object Form3: TForm3
     ParentFont = False
   end
   object Label7: TLabel
-    Left = 696
+    Left = 683
     Top = 9
     Width = 13
     Height = 25
@@ -18804,7 +18806,7 @@ object Form3: TForm3
     ParentFont = False
   end
   object Label11: TLabel
-    Left = 436
+    Left = 428
     Top = 188
     Width = 26
     Height = 25
@@ -18817,7 +18819,7 @@ object Form3: TForm3
     ParentFont = False
   end
   object Label12: TLabel
-    Left = 556
+    Left = 551
     Top = 188
     Width = 26
     Height = 25
@@ -18830,7 +18832,7 @@ object Form3: TForm3
     ParentFont = False
   end
   object Label13: TLabel
-    Left = 692
+    Left = 683
     Top = 188
     Width = 26
     Height = 25
@@ -18841,5 +18843,11 @@ object Form3: TForm3
     Font.Name = 'Tahoma'
     Font.Style = [fsBold]
     ParentFont = False
+  end
+  object FDC: TFDConnection
+    Params.Strings = (
+      'DriverID=SQLite')
+    Left = 124
+    Top = 164
   end
 end
